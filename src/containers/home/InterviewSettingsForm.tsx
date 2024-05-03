@@ -27,7 +27,7 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
     setFieldTouched,
     setFieldValue,
   } = useFormik<IInterViewSettings>({
-    initialValues:  {
+    initialValues:  data?.state? data.state.interviewSettings : {
       interviewDuration: "",
       interviewLanguage: "",
       interviewMode: "",
@@ -62,7 +62,7 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
           }}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
-          value={data?.state.interviewSettings?.interviewMode}
+          value={values.interviewMode}
           error={errors?.interviewMode}
           touched={touched?.interviewMode}
         />
@@ -82,7 +82,7 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
           }}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
-          value={data?.state.interviewSettings?.interviewDuration}
+          value={values.interviewDuration}
           error={errors?.interviewDuration}
           touched={touched?.interviewDuration}
         />

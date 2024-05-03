@@ -14,15 +14,14 @@ interface PropsType {
 const JobDetailsForm: React.FC<PropsType> = (props : PropsType) => {
 
   const data = useData()
-  const [initialValues, setInitial] = useState<IJobDetails>({
-    jobDetails: "",
-    jobLocation: "",
-    jobTitle: "",
-  })
 
   const { handleChange, errors, touched, handleBlur, handleSubmit, values } =
     useFormik<IJobDetails>({
-      initialValues: initialValues,
+      initialValues: data?.state ? data.state.jobDetails : {
+        jobDetails: "",
+        jobLocation: "",
+        jobTitle: "",
+      },
       validationSchema: Yup.object().shape({
         jobTitle: Yup.string().required("Job Title is required"),
         jobDetails: Yup.string().required("Job Details is required"),

@@ -26,7 +26,7 @@ const RequisitionForm: React.FC<PropsType> = (props: PropsType) => {
     setFieldTouched,
     setFieldValue,
   } = useFormik<IRequisitionDetails>({
-    initialValues: {
+    initialValues: data?.state ? data.state.requisitionDetails : {
       gender: "",
       noOfOpenings: 0,
       requisitionTitle: "",
@@ -110,7 +110,7 @@ const RequisitionForm: React.FC<PropsType> = (props: PropsType) => {
           onBlur={setFieldTouched}
           error={errors.gender}
           touched={touched.gender}
-          value={data?.state.requisitionDetails.gender}
+          value={values.gender}
         />
         <FormSelect
           label="Urgency"
@@ -130,7 +130,7 @@ const RequisitionForm: React.FC<PropsType> = (props: PropsType) => {
           onBlur={setFieldTouched}
           error={errors.urgency}
           touched={touched.urgency}
-          value={data?.state.requisitionDetails.urgency}
+          value={values.urgency}
         />
         <Flex w="100%" justify="flex-end" mt="4rem">
           <Button colorScheme="red" type="submit">

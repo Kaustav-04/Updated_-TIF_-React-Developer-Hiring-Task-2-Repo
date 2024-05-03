@@ -73,9 +73,5 @@ export interface IRequisitionDetails {
 export interface IFormType {
   requisitionDetails: IRequisitionDetails,
   jobDetails: IJobDetails,
-  interviewSettings: {
-    interviewMode: string;
-    interviewDuration: string;
-    interviewLanguage: string;
-  }
+  interviewSettings: IInterViewSettings
 }
