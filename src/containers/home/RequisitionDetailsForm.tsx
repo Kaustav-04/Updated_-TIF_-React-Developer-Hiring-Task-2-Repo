@@ -44,12 +44,9 @@ const RequisitionForm: React.FC<PropsType> = (props: PropsType) => {
     }),
     onSubmit: (values) => {
       //  Go to Next Step
-      data?.setState((prev) => ({ ...prev, requisitionDetails: values }));
       props.updateStep((prev) => prev + 1);
     },
   });
-
-  console.log(values);
 
   return (
     <Box width="100%" as="form" onSubmit={handleSubmit as any}>
@@ -111,6 +108,7 @@ const RequisitionForm: React.FC<PropsType> = (props: PropsType) => {
           error={errors.gender}
           touched={touched.gender}
           value={values.gender}
+          defaultValue={values.gender}
         />
         <FormSelect
           label="Urgency"
@@ -131,6 +129,7 @@ const RequisitionForm: React.FC<PropsType> = (props: PropsType) => {
           error={errors.urgency}
           touched={touched.urgency}
           value={values.urgency}
+          defaultValue={values.urgency}
         />
         <Flex w="100%" justify="flex-end" mt="4rem">
           <Button colorScheme="red" type="submit">

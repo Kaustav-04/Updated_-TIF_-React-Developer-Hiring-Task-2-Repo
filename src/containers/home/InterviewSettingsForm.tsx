@@ -38,7 +38,6 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
       interviewLanguage: Yup.string().required("Interview Language is required"),
     }),
     onSubmit: (values) => {
-      data?.setState((prev) => ({ ...prev, interviewSettings: values }));
       alert("Form successfully submitted");
     },
   });
@@ -65,6 +64,7 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
           value={values.interviewMode}
           error={errors?.interviewMode}
           touched={touched?.interviewMode}
+          defaultValue={values.interviewMode}
         />
         <FormSelect
           label="Interview Duration"
@@ -85,6 +85,7 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
           value={values.interviewDuration}
           error={errors?.interviewDuration}
           touched={touched?.interviewDuration}
+          defaultValue={values.interviewDuration}
         />
         <FormSelect
           label="Job Location"
@@ -104,7 +105,8 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
           onBlur={setFieldTouched}
           error={errors.interviewLanguage}
           touched={touched.interviewLanguage}
-          value={data?.state.interviewSettings.interviewLanguage}
+          value={values.interviewLanguage}
+          defaultValue={values.interviewLanguage}
         />
         <Flex w="100%" justify="flex-end" mt="4rem" gap="20px">
           <Button

@@ -30,7 +30,6 @@ const JobDetailsForm: React.FC<PropsType> = (props : PropsType) => {
       onSubmit: (values) => {
         console.log({ values });
         // Go to next step
-        data?.setState((prev) => ({ ...prev, jobDetails: values }));
 
         props.updateStep((prev) => prev + 1)
       },

@@ -10,7 +10,8 @@ interface IFormSelectProps
   selectProps?: Props;
   onChange?: any;
   onBlur?: any;
-  dataUpdate?: any
+  dataUpdate?: any,
+  defaultValue? : any
 }
 
 const FormSelect: React.FC<IFormSelectProps> = ({
@@ -27,7 +28,8 @@ const FormSelect: React.FC<IFormSelectProps> = ({
   helperText,
   wrapperProps = {},
   options,
-  dataUpdate
+  dataUpdate,
+  defaultValue
 }) => {
   const theme = useTheme();
 
@@ -54,6 +56,7 @@ const FormSelect: React.FC<IFormSelectProps> = ({
         onChange={handleChange}
         onBlur={handleBlur}
         options={options}
+        defaultValue={options.find((item: { label: string }) => item?.label === defaultValue)}
         // styles
         styles={{
           container: (base) => ({
