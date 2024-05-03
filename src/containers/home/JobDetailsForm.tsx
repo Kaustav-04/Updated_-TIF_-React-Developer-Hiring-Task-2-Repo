@@ -14,7 +14,11 @@ interface PropsType {
 const JobDetailsForm: React.FC<PropsType> = (props : PropsType) => {
 
   const data = useData()
-  const [initialValues, setInitial] = useState<IJobDetails>(data?.state.jobDetails)
+  const [initialValues, setInitial] = useState<IJobDetails>({
+    jobDetails: "",
+    jobLocation: "",
+    jobTitle: "",
+  })
 
   const { handleChange, errors, touched, handleBlur, handleSubmit, values } =
     useFormik<IJobDetails>({

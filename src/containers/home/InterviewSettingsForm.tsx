@@ -27,7 +27,11 @@ const InterviewDetailsForm: React.FC<PropsType> = (props: PropsType) => {
     setFieldTouched,
     setFieldValue,
   } = useFormik<IInterViewSettings>({
-    initialValues: data?.state.interviewSettings,
+    initialValues:  {
+      interviewDuration: "",
+      interviewLanguage: "",
+      interviewMode: "",
+    },
     validationSchema: Yup.object().shape({
       interviewMode: Yup.string().required("Interview Mode is required"),
       interviewDuration: Yup.string().required("Interview Duration is required"),

@@ -26,7 +26,12 @@ const RequisitionForm: React.FC<PropsType> = (props: PropsType) => {
     setFieldTouched,
     setFieldValue,
   } = useFormik<IRequisitionDetails>({
-    initialValues: data?.state.requisitionDetails,
+    initialValues: {
+      gender: "",
+      noOfOpenings: 0,
+      requisitionTitle: "",
+      urgency: "",
+    },
     validationSchema: Yup.object().shape({
       requisitionTitle: Yup.string().required("Requisition title is required"),
       noOfOpenings: Yup.number()
